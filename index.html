@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Rotation</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <img id="rotating-image" src="./model/car-01.jpg" alt="Rotating Car">
+  
+  <script>
+    const totalImages = 36;
+    const path = './frames/car-index.jpg';
+
+    let currentImageIndex = 1;
+    const rotatingImage = document.getElementById('rotating-image');
+
+    function updateImage() {
+      currentImageIndex++;
+      if (currentImageIndex > totalImages) {
+        currentImageIndex = 1;
+      }
+
+      const newImageSrc = path.replace('index', String(currentImageIndex).padStart(2, '0'));
+      rotatingImage.src = newImageSrc;
+    }
+
+    setInterval(updateImage, 100);
+  </script>
+</body>
+</html>
